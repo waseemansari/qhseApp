@@ -7,8 +7,8 @@ export default function HeaderLogo() {
 
 const styles = StyleSheet.create({
   image: {
-    width: 100,
+    width: 220,
     height: 100,
-    marginBottom: 0,
+    paddingLeft:20,
   },
 })

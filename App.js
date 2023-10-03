@@ -56,31 +56,36 @@ function BottomNav(){
 const Tab = createBottomTabNavigator();
   return(
     <Tab.Navigator
+   
     screenOptions={({ route }) => ({
-      tabBarIcon: ({ color, size }) => {
-        let iconName;
-
-        if (route.name === 'Home') {
-          iconName = 'rocket'; // Icon name for Screen1
-        }
-         else if (route.name === 'About Us') {
-          iconName = 'users'; // Icon name for Screen2
-        }
-        else if (route.name === 'Our Brochure') {
-          iconName = 'book'; // Icon name for Screen2
-        }
-        else if (route.name === 'Contact Us') {
-          iconName = 'phone'; // Icon name for Screen2
-        }
-        else if (route.name === 'Location') {
-          iconName = 'map-marker'; // Icon name for Screen2
-        }
-        // Add more conditions for additional screens and icons
-
-        return <Icon name={iconName} size={size} color='yellow' />;
+      tabBarStyle: {
+        backgroundColor:theme.bgColor ,
       },
-    })}
-  >
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = 'rocket'; // Icon name for Screen1
+          }
+          else if (route.name === 'About Us') {
+            iconName = 'users'; // Icon name for Screen2
+          }
+          else if (route.name === 'Our Brochure') {
+            iconName = 'book'; // Icon name for Screen2
+          }
+          else if (route.name === 'Contact Us') {
+            iconName = 'phone'; // Icon name for Screen2
+          }
+          else if (route.name === 'Location') {
+            iconName = 'map-marker'; // Icon name for Screen2
+          }
+          // Add more conditions for additional screens and icons
+
+          return <Icon name={iconName} size={size} color={theme.colors.primary}  />;
+        },
+    })
+    }
+     >
        <Tab.Screen
           options={{ headerShown: false }}
           name="Home" component={StartScreen}
