@@ -1,16 +1,9 @@
 import React from 'react'
 import Logo from '../components/HeaderLogo'
 import Header from '../components/Header'
-import { View, Text, StyleSheet,TouchableOpacity,Linking  } from 'react-native';
+import { View, Text, StyleSheet  } from 'react-native';
 import { theme } from '../core/theme'
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-const Tab = createBottomTabNavigator(); 
-const handleLinkPress = () => {
-  const url = 'https://www.qhseinternational.com/qhse-international-brochures/';
-  Linking.openURL(url);
-};
+import Button from '../components/Button'
 
 export default function OurBrochure({ navigation }) {
   return (
@@ -21,9 +14,13 @@ export default function OurBrochure({ navigation }) {
         </Text>
         <Text style={styles.headerStyleRight}>Our Brochure</Text>
         <Header style={styles.fullWidth}>Our Brochure</Header>
-          <TouchableOpacity onPress={handleLinkPress} style={styles.button} >
-            <Text style={styles.text}>Open Brochures</Text>
-          </TouchableOpacity>
+          <Button
+            style={styles.button}   
+            onPress={() => navigation.navigate('BroucherDetail')}
+          >
+         <Text style={styles.text}>Open Brochures</Text>
+        </Button>
+  
       </View>
    
   )

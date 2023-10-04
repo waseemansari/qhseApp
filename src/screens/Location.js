@@ -4,9 +4,7 @@ import Header from '../components/Header'
 import Paragraph from '../components/Paragraph'
 import {ScrollView, View, Text, StyleSheet,TouchableOpacity,Linking } from 'react-native';
 import { theme } from '../core/theme'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Tab = createBottomTabNavigator();
 export default function Location({ navigation }) {
   const uaeGoogleLocation = () => {
     const latitude = '25.189250'; // Replace with the desired latitude

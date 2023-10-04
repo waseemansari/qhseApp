@@ -4,14 +4,15 @@ import Header from '../components/Header'
 import Paragraph from '../components/Paragraph'
 import {ScrollView, View, Text, StyleSheet } from 'react-native';
 import { theme } from '../core/theme'
-export default function AboutUs({ navigation }) {
+
+export default function Payments({ navigation }) {
   return (
     <ScrollView >
       <View style={styles.container} >
         <Text style={styles.headerStyleLeft}>
            <Logo/>
         </Text>
-        <Text style={styles.headerStyleRight}>About Us</Text>
+        <Text style={styles.headerStyleRight}>Payments</Text>
         <Header style={styles.fullWidth}>The Company</Header>
         <Paragraph style={styles.text}>
         QHSE International is a leading provider of quality, health, safety & environmental training and consultancy. The team aims to continuously improve internal processes to better protect the health and safety of its employees and sub-contractors, while also minimizing its impact on the environment and to deliver added value services to our clients. The company has a prime service through its highly regarded international trainers and consultants that offer innovative solutions and knowledge transfers. QHSE International commits to innovation, safety at work, ethics and customer-focused values. QHSE International is also certified with is certified according to ISO 9001:2015 and also awarded by NEBOSH as Gold Learning Partner.

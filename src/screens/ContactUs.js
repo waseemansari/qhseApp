@@ -3,9 +3,7 @@ import Logo from '../components/HeaderLogo'
 import Header from '../components/Header'
 import {ScrollView, View, Text, StyleSheet,TouchableOpacity,Linking  } from 'react-native';
 import { theme } from '../core/theme'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Tab = createBottomTabNavigator();
 export default function ContactUs({ navigation }) {
   const handleWhatsAppPressUae = () => {
     const phoneNumber = '0553557473'; // Replace with the recipient's phone number
@@ -168,25 +166,22 @@ const styles = StyleSheet.create({
   fullWidth: {
     width:'100%',
     height:50,
-     color: theme.colors.white,
+    color: theme.colors.white,
     fontSize:15,
-    borderBottomColor: '#fff',
-    borderBottomWidth: 1,
-    
   },
   text:{
     fontSize:15,
     paddingTop:8,
-     color: theme.colors.white,
+    color: theme.colors.white,
     paddingBottom:20,
     lineHeight: 24,
   },
   link:{
     fontSize:15,
     paddingTop:8,
-    color: 'blue',
+    color: theme.colors.primary,
     paddingBottom:5,
-    borderBottomColor: 'blue',
+    borderBottomColor: theme.colors.primary,
     borderBottomWidth: 2,
   }
  

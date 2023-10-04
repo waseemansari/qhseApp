@@ -12,8 +12,19 @@ import {
   AboutUs,
   ContactUs,
   Location,
-  OurBrochure
+  OurBrochure,
+  Transactions,
+  Home,
+  Inbox,
+  Payments,
+  Profile,
+  BroucherDetail,
+  Courses,
+  Consultanc,
+  OfferAndPackage,
+
 } from './src/screens';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Stack = createStackNavigator()
@@ -24,7 +35,6 @@ export default function App() {
     <Provider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="BottomNav"
           screenOptions={{
             headerShown: false,
           }}
@@ -39,6 +49,11 @@ export default function App() {
             headerShown: false,
           }}
           name="StartScreen" component={StartScreen} />
+          <Stack.Screen name="Courses" component={Courses} />
+          <Stack.Screen name="Consultanc" component={Consultanc} />
+
+          <Stack.Screen name="OfferAndPackage" component={OfferAndPackage} />
+          <Stack.Screen name="BroucherDetail" component={BroucherDetail} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
@@ -54,9 +69,10 @@ export default function App() {
 function BottomNav(){
 
 const Tab = createBottomTabNavigator();
+const auth  = 1;
   return(
+    auth==0 ?
     <Tab.Navigator
-   
     screenOptions={({ route }) => ({
       tabBarStyle: {
         backgroundColor:theme.bgColor ,
@@ -65,7 +81,7 @@ const Tab = createBottomTabNavigator();
           let iconName;
 
           if (route.name === 'Home') {
-            iconName = 'rocket'; // Icon name for Screen1
+            iconName = 'home'; // Icon name for Screen1
           }
           else if (route.name === 'About Us') {
             iconName = 'users'; // Icon name for Screen2
@@ -108,5 +124,59 @@ const Tab = createBottomTabNavigator();
        />
    
     </Tab.Navigator>
+    :
+    <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarStyle: {
+        backgroundColor:theme.bgColor ,
+      },
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = 'home'; // Icon name for Screen1
+          }
+          else if (route.name === 'Inbox') {
+            iconName = 'download'; // Icon name for Screen2
+          }
+          else if (route.name === 'Payments') {
+            iconName = 'credit-card'; // Icon name for Screen2
+          }
+          else if (route.name === 'Transactions') {
+            iconName = 'exchange'; // Icon name for Screen2
+          }
+          else if (route.name === 'Profile') {
+            iconName = 'user'; // Icon name for Screen2
+          }
+          // Add more conditions for additional screens and icons
+
+          return <Icon name={iconName} size={size} color={theme.colors.primary}  />;
+        },
+    })
+    }
+     >
+       <Tab.Screen
+          options={{ headerShown: false }}
+          name="Home" component={Home}
+       />
+       <Tab.Screen
+          options={{ headerShown: false }}
+          name="Inbox" component={Inbox}
+       />
+       <Tab.Screen
+          options={{ headerShown: false }}
+          name="Payments" component={Payments}
+       />
+       <Tab.Screen
+          options={{ headerShown: false }}
+          name="Transactions" component={Transactions}
+       />
+       <Tab.Screen
+        options={{ headerShown: false }}
+         name="Profile" component={Profile}
+       />
+   
+    </Tab.Navigator>
+    
   );
 }
